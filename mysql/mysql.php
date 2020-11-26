@@ -26,11 +26,15 @@
 
     function login($user, $pwd, $conn){ //Para verificar los datos de quien se esta loguiando
         $sql = "SELECT (idusuario)id, typee, (CAST(aes_decrypt(pwd,'lal')AS CHAR(90)))pass FROM usuario WHERE username='$user';";
+        
         $result = ($conn->query($sql))->fetch_assoc();
+
+
         if(strcmp($result['pass'], $pwd) == 0){ //Verifica si el password es correcto
             $array = array($result['id'], $result['typee']);
             return $array; //Retorna id y type
         }
         return 0;
     }
+
 ?>

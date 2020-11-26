@@ -1,0 +1,154 @@
+html{
+    font-size: 62.5%;
+}
+
+body{
+    font-size: 2rem;
+    background-color: #4d84e2;
+}
+
+h1{
+    font-size: 4rem;
+}
+
+h2{
+    font-size: 3.6rem;
+}
+
+h3{
+    font-size: 3.2rem;
+}
+
+h4{
+    font-size: 2.8rem;
+}
+
+
+/** Home **/
+.site-header{
+    background-color: #22242a;
+    height: 10rem;
+}
+
+.site-elements{
+   max-width: 120rem;
+   height: 100%;
+   margin: 0 auto;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   color: #fff;
+}
+
+.site-header span{
+    color: #1dc4e7;
+}
+
+.header-left{
+    width: 30rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.header-left i{
+    font-size: 4rem;
+}
+
+.header-right button{
+    background-color: #4d84e2;
+    border: none;
+    outline: none;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    color: #fff;
+}
+
+.header-right button:hover{
+    background-color: #4481eb;
+}
+
+.sidebar{
+    background-color: #4d84e2;
+    padding-top: 2rem;
+    position: fixed;
+    left: 0;
+    width: 25rem;
+    height: 100%;
+}
+
+.profile-data{
+    width: 100%;
+    text-align: center;
+    color: #ccc;
+    margin-top: 0;
+    margin-bottom: 2rem;
+}
+
+.sidebar a{
+    font-size: 2.8rem;
+    color: #fff;
+    display: block;
+    width: 100%;
+    line-height: 10rem;
+    text-decoration: none;
+    padding-left: 4rem;
+    box-sizing: border-box;
+    transition: 0.5s;
+}
+
+.sidebar a:hover{
+    background: #22242a;
+}
+
+.sidebar i{
+    padding-right: 1rem;
+}
+
+label #sidebar_btn{
+    z-index: 1;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+label #sidebar_btn:hover{
+    color: #4d84e2;
+}
+
+#check:checked ~ .sidebar{
+    left: -19rem;
+}
+
+#check:checked ~ .sidebar h4{
+    display: none;
+}
+
+#check:checked ~ .sidebar a span{
+    display: none;
+}
+
+#check:checked ~ .sidebar a{
+    font-size: 3rem;
+    margin-left: 16rem;
+    width: 9rem;
+}
+
+/**Contenido**/
+
+.content{
+    margin-left: 25rem;
+    background: url(../img/lago.jpg) no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    transition: 0.5s;
+}
+
+#check:checked ~ .content{
+    margin-left: 6rem;
+}
+
+#check{
+    display: none;
+}
