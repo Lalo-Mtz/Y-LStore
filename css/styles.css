@@ -124,6 +124,7 @@ form.sign-up-form{
     width: 150px;
     height: 49px;
     border: none;
+    outline: none;
     border-radius: 49px;
     cursor: pointer;
     background-color: #5995fd;

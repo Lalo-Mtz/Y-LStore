@@ -24,17 +24,33 @@
         mysqli_close($conn);
     }
 
-    function login($user, $pwd, $conn){ //Para verificar los datos de quien se esta loguiando
+    function login($user, $pwd){ //Para verificar los datos de quien se esta loguiando
+        $conn = connect();
         $sql = "SELECT (idusuario)id, typee, (CAST(aes_decrypt(pwd,'lal')AS CHAR(90)))pass FROM usuario WHERE username='$user';";
         
         $result = ($conn->query($sql))->fetch_assoc();
-
+        close($conn);//Cierra la conexion
 
         if(strcmp($result['pass'], $pwd) == 0){ //Verifica si el password es correcto
             $array = array($result['id'], $result['typee']);
-            return $array; //Retorna id y type
+            return $array; //Retorna id y type 
         }
+        
         return 0;
+    }
+
+
+    function newUser($name, $email, $pwd, $type){ //Para cargar un nuevo usuario
+        $conn = connect();
+        $sql = "INSERT INTO usuario(nombre, email, pwd, tipo) VALUES('$name', '$email', aes_encrypt('$pwd','lalo'), $type);";
+        if($conn->query($sql) === true){
+            $sql = true;
+        }else{
+            echo "Error: " . $sql . "<br>" . $conn->error;
+            $sql = false;
+        }
+        close($conn);
+        return $sql;
     }
 
 ?>

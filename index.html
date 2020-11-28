@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>R&L Store</title>
+    <title>Store Y&L</title>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -19,24 +19,24 @@
 
             <div class="signin-signup">
             
-                <form action="" class="sign-in-form">
+                <form action="funciones/startSession.php" class="sign-in-form" method="POST">
 
                     <h2 class="title">Sign in</h2>
 
                     <div class="input-field">
                         <i class="fas fa-user"></i>
-                        <input type="text" name="" id="" placeholder="Username">
+                        <input type="text" name="usr" id="usr" placeholder="Username">
                     </div>
 
 
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
-                        <input type="password" name="" id="" placeholder="Password">
+                        <input type="password" name="pwd" id="pwd" placeholder="Password">
                     </div>
 
-                    <input type="submit" value="Login" class="btn solid">
+                    <input type="submit" value="Login" name="btn" class="btn solid">
 
-                    <p class="social-text">Or Sign in with social plataforms</p>
+                    <!--<p class="social-text">Or Sign in with social plataforms</p>
 
                     <div class="social-media">
                         <a href="#" class="social-icon">
@@ -51,33 +51,33 @@
                         <a href="#" class="social-icon">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
-                    </div>
+                    </div>-->
 
                 </form>
 
 
-                <form action="" class="sign-up-form">
+                <form action="funciones/startSession.php" method="POST" class="sign-up-form">
 
                     <h2 class="title">Sign up</h2>
 
                     <div class="input-field">
                         <i class="fas fa-user"></i>
-                        <input type="text" name="" id="" placeholder="Username">
+                        <input type="text" name="usr" id="usr" placeholder="Username">
                     </div>
 
                     <div class="input-field">
                         <i class="fas fa-envelope"></i>
-                        <input type="text" name="" id="" placeholder="Email">
+                        <input type="email" name="em" id="em" placeholder="Email">
                     </div>
 
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
-                        <input type="password" name="" id="" placeholder="Password">
+                        <input type="password" name="pwd" id="pwd" placeholder="Password">
                     </div>
+                    
+                    <input type="submit" value="Sign up" name="btn" class="btn solid">
 
-                    <input type="submit" value="Sign up" class="btn solid">
-
-                    <p class="social-text">Or Sign up with social plataforms</p>
+                    <!--<p class="social-text">Or Sign up with social plataforms</p>
 
                     <div class="social-media">
                         <a href="#" class="social-icon">
@@ -92,7 +92,7 @@
                         <a href="#" class="social-icon">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
-                    </div>
+                    </div>-->
 
                 </form>
 
