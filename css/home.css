@@ -1,5 +1,10 @@
 html{
-    font-size: 62.5%;
+    box-sizing: border-box;
+    font-size: 62.5%; /**Reset para REMS - 62.5% = 10px de 16px**/
+}
+
+*, *:before, *:after{
+    box-sizing: inherit;
 }
 
 body{
@@ -23,6 +28,9 @@ h4{
     font-size: 2.8rem;
 }
 
+.centrar-texto{
+    text-align: center;
+}
 
 /** Home **/
 .site-header{
@@ -48,8 +56,7 @@ h4{
     width: 30rem;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-
+    align-items: baseline;
 }
 
 .header-left i{
@@ -142,8 +149,10 @@ label #sidebar_btn:hover{
     background-color: #fff;
     background-position: center;
     background-size: cover;
-    height: 100vh;
+    height: 100%;
     transition: 0.5s;
+    position: static;
+    font-family: 'Lato', sans-serif;
 }
 
 #check:checked ~ .content{
@@ -152,4 +161,79 @@ label #sidebar_btn:hover{
 
 #check{
     display: none;
+}
+
+/** Settings **/
+
+.settings{
+    color: #22242a;
+    max-width: 90rem;
+    margin: 0 auto;
+    font-size: 1.7rem;
+    padding: 2rem;
+}
+
+.inf{
+    padding: 2rem;
+}
+
+fieldset{
+    border: #4481eb inset 3px;
+    border-radius: 3rem;
+    padding-top: 2rem;
+}
+
+legend{
+    font-size: 2.2rem;
+    color: #4f4f4f;
+}
+
+label{
+    display: block;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 2rem;
+}
+
+input:not([type="submit"]){
+    border: none;
+    outline: none;
+    border-radius: 1rem;
+    background-color: #e1e1e1;
+    font-size: 1.5rem;
+    margin: .2rem 2rem;
+    margin-left: 0;
+    padding: 1rem;
+}
+
+input:not([type="date"]):not([type="submit"]){
+    width: 100%;
+}
+
+.domicilio{
+    margin-top: 3rem;
+}
+
+.nums{
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn{
+    width: 150px;
+    height: 49px;
+    border: none;
+    outline: none;
+    border-radius: 49px;
+    cursor: pointer;
+    background-color: #5995fd;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin: 2.5rem 0;
+    transition: .5s;
+}
+
+.btn:hover{
+    background-color: #4d84e2;
 }

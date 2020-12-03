@@ -1,0 +1,45 @@
+<?php
+    session_start();
+    include("mysql.php");
+
+    if($_SESSION['registered'] == true){
+        $conn = connect();
+        $id = $_POST['idu'];
+        $u = $_POST['uname'];
+        $ap = $_POST['apepat'];
+        $am = $_POST['apemat'];
+        $bid = $_POST['birthdate'];
+        $m = $_POST['mail'];
+        $ph = $_POST['phone'];
+
+        $calle = $_POST['calle'];
+        $ext = $_POST['ext'];
+        $inte = $_POST['inte'];
+        $cp = $_POST['cp'];
+        $co = $_POST['co'];
+        $ci = $_POST['ci'];
+        $es = $_POST['es'];
+
+        echo $id . "<br>";
+        echo $u;
+
+
+        $sql = "UPDATE usuario SET nombre='$u', ape_pat='$ap', ape_mat='$am', fecha='$bid', email='$m', telefono='$ph' WHERE idu=$id;";
+
+        if($conn->query($sql) === true){
+            $sql = "UPDATE domicilio SET calle='$calle', n_ext='$ext', n_int='$inte', cp='$cp', colonia='$co', ciudad='$ci', estado='$es' WHERE idu=$id;";
+            if($conn->query($sql) === true){}else{
+                echo "Error: " . $sql . "<br>" . $conn->error;
+            }
+        }else{
+            echo "Error: " . $sql . "<br>" . $conn->error;
+            $sql = false;
+        }
+        
+        close($conn);
+        
+    }//else{
+    //    header('Location : home.php?op=5');
+    //}
+    header("Location: ../home.php?op=0"); //Si no existe o no es valido regresa al index
+?>
