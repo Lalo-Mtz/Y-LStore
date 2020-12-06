@@ -195,15 +195,21 @@ label{
     margin-top: 2rem;
 }
 
-input:not([type="submit"]){
+input:not([type="submit"]), textarea, select{
     border: none;
     outline: none;
+    display: block;
+    width: 100%;
     border-radius: 1rem;
     background-color: #e1e1e1;
     font-size: 1.5rem;
     margin: .2rem 2rem;
     margin-left: 0;
     padding: 1rem;
+}
+
+textarea{
+    height: 20rem;
 }
 
 input:not([type="date"]):not([type="submit"]){
@@ -236,4 +242,61 @@ input:not([type="date"]):not([type="submit"]){
 
 .btn:hover{
     background-color: #4d84e2;
+}
+
+
+/** Products **/
+.v-h{
+    height: 100vh;
+}
+
+.m-c{
+    height: max-content;
+}
+
+.operaciones{
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+.buscar{
+    max-width: 120rem;
+    margin: 0 auto;
+    margin-top: 2rem;
+}
+
+.ope{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.op{
+    padding: 0;
+    width: 200px;
+    font-size: 1.4rem;
+}
+
+.infoPro{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 90rem;
+    margin: 0 auto;
+}
+
+.no-visible{
+    display: none;
+}
+
+.list{
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.row-one{
+    text-align: center;
+    background-color: #22242a;
+    color: #fff;
 }

@@ -20,16 +20,19 @@
         $ci = $_POST['ci'];
         $es = $_POST['es'];
 
-        echo $id . "<br>";
-        echo $u;
-
 
         $sql = "UPDATE usuario SET nombre='$u', ape_pat='$ap', ape_mat='$am', fecha='$bid', email='$m', telefono='$ph' WHERE idu=$id;";
 
         if($conn->query($sql) === true){
-            $sql = "UPDATE domicilio SET calle='$calle', n_ext='$ext', n_int='$inte', cp='$cp', colonia='$co', ciudad='$ci', estado='$es' WHERE idu=$id;";
-            if($conn->query($sql) === true){}else{
-                echo "Error: " . $sql . "<br>" . $conn->error;
+            $sql = "SELECT * FROM domicilio WHERE idu=$id;";
+
+            if((($conn->query($sql))->fetch_assoc())['idu'] == ""){
+                $sql = "INSERT INTO domicilio(idu, calle, n_ext, n_int, cp, colonia, ciudad, estado) 
+                    VALUES($id, '$calle', '$ext', '$inte', $cp, '$co', '$ci', '$es');";
+                $conn->query($sql);
+            }else{
+                $sql = "UPDATE domicilio SET calle='$calle', n_ext='$ext', n_int='$inte', cp='$cp', colonia='$co', ciudad='$ci', estado='$es' WHERE idu=$id;";
+                $conn->query($sql);
             }
         }else{
             echo "Error: " . $sql . "<br>" . $conn->error;

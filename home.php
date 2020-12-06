@@ -4,6 +4,8 @@
     if($_SESSION['registered'] == true){
         $o = $_GET['op'];
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,7 +57,10 @@
     <main class="content">
         <?php
             switch($o){
+                case 2 : adminProducts(); 
+                    break;
                 case 5 : settings();
+                    break;
             }
         ?>
         

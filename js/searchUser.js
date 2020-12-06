@@ -18,7 +18,7 @@ const calle = document.getElementById('calle'),
 const getUser = () =>{
     const user = uneme.value,
         id = idu.value,
-        URL = `http://localhost/Y-LStore/mysql/consultUser.php?u=${user}&i=${id}`;
+        URL = `http://localhost/Y-LStore/mysql/consultUser.php?i=${id}`;
 
     fetch(URL)
         .then(response => response.json())
