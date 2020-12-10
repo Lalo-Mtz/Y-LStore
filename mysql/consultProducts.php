@@ -9,6 +9,7 @@
         $c = $_GET['c'];
         $mi = $_GET['mi'];
         $ma = $_GET['ma'];
+        $id = $_GET['i'];
         $op = $_GET['o'];
 
         switch($op){
@@ -34,6 +35,10 @@
 
             case 6 :
                 $complete = "categoria like '%$c%' AND precio >= $mi AND precio <= $ma";
+            break;
+
+            case 7 :
+                $complete = "idp = $id";
             break;
 
             default :

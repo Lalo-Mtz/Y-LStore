@@ -254,6 +254,11 @@ input:not([type="date"]):not([type="submit"]){
     height: max-content;
 }
 
+.precionado{
+    color: #1dc4e7;
+    background-color: #22242a;
+}
+
 .operaciones{
     max-width: 120rem;
     margin: 0 auto;
@@ -282,8 +287,24 @@ input:not([type="date"]):not([type="submit"]){
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-width: 110rem;
+    margin: 0 auto;
+}
+
+.newCatego{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     max-width: 90rem;
     margin: 0 auto;
+}
+
+.newCatego div input{
+    width: 34rem!important;
+}
+
+.newCatego div button{
+    font-size: 1.5rem!important;
 }
 
 .no-visible{
@@ -299,4 +320,28 @@ input:not([type="date"]):not([type="submit"]){
     text-align: center;
     background-color: #22242a;
     color: #fff;
+}
+
+/** Eliminar Producto **/
+
+.btn-e{
+    width: 102px;
+    height: 49px;
+    border: none;
+    outline: none;
+    border-radius: 49px;
+    cursor: pointer;
+    background-color: #5995fd;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: .5s;
+    font-size: 1.3rem;
+    margin: 0;
+}
+
+/** Admin Usuarios **/
+
+.ma-bo{
+    margin-bottom: 2rem;
 }

@@ -50,17 +50,47 @@
         <a href="home.php?op=1"><i class="fas fa-shopping-cart"></i><span>Shopping</span></a>
         <a href="home.php?op=2"><i class="fas fa-users"></i><span>Users</span></a>
         <a href="home.php?op=3"><i class="fas fa-store"></i><span>Products</span></a>
-        <a href="home.php?op=4"><i class="fas fa-comments"></i><span>Carrito</span></a>
+        <a href="home.php?op=4"><i class="fas fa-comments"></i><span>Messages</span></a>
         <a href="home.php?op=5"><i class="fas fa-sliders-h"></i><span>Settings</span></a>
     </div>
 
     <main class="content">
         <?php
             switch($o){
-                case 2 : adminProducts(); 
-                    break;
-                case 5 : settings();
-                    break;
+
+                case 2 : 
+                    //Verificar que sea admin
+                    adminUsers();
+                break;
+
+                case 3 :
+                    //Verificar que sea admin 
+                    adminProducts(); 
+                break;
+
+                case 5 : 
+                    settings();
+                break;
+                
+                case 6 : 
+                    //Verificar que sea admin
+                    settingsProduct();
+                break;
+
+                case 7 : 
+                    ///verificar que sea admin
+                    newProduct();
+                break;
+
+                case 8 :
+                    //Verificar que sea admin
+                    settingsUser();
+                break;
+
+                case 9:
+                    //verificar que se admin
+                    newUser();
+                break;
             }
         ?>
         

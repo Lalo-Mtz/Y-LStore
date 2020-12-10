@@ -86,19 +86,12 @@
                 </section>
 
                 <section class="buscar" id="contentProd">
+                </section>
+                <section class="buscar">
                     <button class="btn op no-visible" id="seachProduct">Buscar</button>
 
                     <table border=1 class="list no-visible" id="tablePro">
-                        <tr class="row-one">
-                            <td>Id</td>
-                            <td>Nombre</td>
-                            <td>Descripción</td>
-                            <td>Precio</td>
-                            <td>Exixtencia</td>
-                            <td>Categoría</td>
-                            <td>Calificación</td>
-                            <td>Imagen</td>
-                        </tr>
+                        
 
                     </table>
 
@@ -110,5 +103,242 @@
 
             <script src="js/adminProducts.js"></script>
         ';
+    }
+
+    function settingsProduct(){
+        echo '
+            <br>
+            <h1 class="centrar-texto">Información del Producto</h1>
+
+            <section class="settings">
+            <form action="mysql/saveInfoProduct.php" name="formProduct" method="post">
+                <fieldset >
+                    <legend>Información del Producto</legend>
+                    <input type="hidden" name="idp" id="idp" value="'.$_GET['i'].'" required>
+                    <label for="name">Nombre:</label>
+                    <input type="text" name="name" id="name" placeholder="Nombre del prodcuto" required>
+
+                    <label for="des">Descripción:</label>
+                    <textarea name="des" id="des" required></textarea>
+
+                    <label for="price">Precio:</label>
+                    <input type="number" name="price" id="price" placeholder="Precio del producto" required>
+
+                    <label for="exi">Existencia:</label>
+                    <input type="number" name="exi" id="exi" placeholder="Cantidad del producto" required>
+
+                    <label for="category">Categoría:</label>
+                    <select name="category" id="category" required>
+                        <option value="nothing" disabled selected>--Seleccione--</option>
+                    </select>
+
+                    <label for="img">Imagen:</label>
+                    <input type="text" name="img" id="img" placeholder="Imagen del producto" required>
+                    
+                </fieldset>
+
+
+                <input type="submit" value="Guardar" class="btn">
+            </form>
+        </section>
+        <script src="js/searchProduct.js"></script>
+        ';
+    }
+
+    function newProduct(){
+        echo '
+            <br>
+            <h1 class="centrar-texto">Nuevo Producto</h1>
+
+            <section class="settings">
+                <form action="mysql/newProduct.php" name="formProduct" method="post">
+                    <fieldset >
+                        <legend>Información del Producto</legend>
+
+                        <label for="name">Nombre:</label>
+                        <input type="text" name="name" id="name" placeholder="Nombre del prodcuto" required>
+
+                        <label for="des">Descripción:</label>
+                        <textarea name="des" id="des" required></textarea>
+
+                        <label for="price">Precio:</label>
+                        <input type="number" step="any" name="price" id="price" placeholder="Precio del producto" required>
+
+                        <label for="exi">Existencia:</label>
+                        <input type="number" name="exi" id="exi" placeholder="Cantidad del producto" required>
+
+                        <label for="category">Categoría:</label>
+                        <select name="category" id="category" required>
+                            <option value="nothing" disabled selected>--Seleccione--</option>
+                        </select>
+
+                        <label for="img">Imagen:</label>
+                        <input type="text" name="img" id="img" placeholder="Imagen del producto" required>
+                        
+                    </fieldset>
+
+
+                    <input type="submit" value="Guardar" class="btn">
+                </form>
+            </section>
+            <script src="js/searchCategory.js"></script>
+        ';
+    }
+
+    function adminUsers(){
+        echo '
+            <br>
+            <h1 class="centrar-texto">Usuarios</h1>
+            <section class="v-h" id="secUsu">
+                <section class="operaciones">
+                    <fieldset class="ope">
+                        <legend>Operaciones</legend>
+                        <button class="btn op" id="btnBU">Buscar Usuario</button>
+                        <button class="btn op" id="btnNU">Nuevo usuario</button>
+                        <button class="btn op" id="btnAU">Actualizar Usuario</button>
+                        <button class="btn op" id="btnEU">Eliminar Usuario</button>
+                    </fieldset>
+                </section>
+
+                <section class="buscar" id="contentUsu">
+                </section>
+                <section class="buscar">
+                    <button class="btn op no-visible" id="seachUser">Buscar</button>
+
+                    <table border=1 class="list no-visible" id="tableUsu">
+                        
+
+                    </table>
+
+                </section>
+                <br><br>
+                <br><br>
+            </section>
+
+
+            <script src="js/adminUsers.js"></script>
+        ';
+    }
+
+    function settingsUser(){
+        echo '
+        <br>
+            <h1 class="centrar-texto">Información de la cuenta</h1>
+            
+            <section class="settings">
+                <form action="mysql/updateUser.php" method="POST">
+                    <fieldset >
+                        <legend>Información Personal</legend>
+                        <input type="hidden" name="idu" id="idu" value="'.$_GET['i'].'" required>
+                        <label for="uname">Nombre:</label>
+                        <input type="text" name="uname" id="uname" placeholder="Tu nombre">
+        
+                        <label for="apepat">Apellido Paterno:</label>
+                        <input type="text" name="apepat" id="apepat" placeholder="Primer apellido" required>
+        
+                        <label for="apemat">Apellido Materno:</label>
+                        <input type="text" name="apemat" id="apemat" placeholder="Segundo apellido" required>
+        
+                        <label for="birthdate">Fecha de nacimiento:</label>
+                        <input type="date" name="birthdate" id="birthdate" required>
+        
+                        <label for="mail">E-mail:</label>
+                        <input type="email" name="mail" id="mail" placeholder="Tu e-mail" required>
+        
+                        <label for="phone">Teléfono:</label>
+                        <input type="tel" name="phone" id="phone" placeholder="Tu numero de telefono" required>
+
+                        <label for="roluser">Rol:</label>
+                        <select name="roluser" id="roluser" required>
+                            <option value="0" disabled selected>--Seleccione--</option>
+                            <option value="1">Administrador</option>
+                            <option value="0">Usuario</option>
+                        </select>
+
+                        <label for="">Gustos</label>
+                    </fieldset>
+        
+                    <fieldset class="domicilio">
+                        <legend>Domicilio</legend>
+                        <label for="calle">Calle:</label>
+                        <input type="text" name="calle" id="calle" placeholder="Tu calle" required>
+        
+                        <div class="nums">
+                            <div>
+                                <label for="ext">Número exterior:</label>
+                                <input type="number" name="ext" id="ext" placeholder="xxx" required>
+                            </div>
+        
+                            <div>
+                                <label for="inte">Número interior:</label>
+                                <input type="number" name="inte" id="inte" placeholder="yyy" >
+                            </div>
+        
+                            <div>
+                                <label for="cp">Código Postal:</label>
+                                <input type="number" name="cp" id="cp" placeholder="zzzzz" required>
+                            </div>
+                        </div>
+        
+                        <label for="co">Colonia:</label>
+                        <input type="text" name="co" id="co" placeholder="Tu colonia" required>
+        
+                        <label for="ci">Ciudad:</label>
+                        <input type="text" name="ci" id="ci" placeholder="Tu ciudad" required>
+        
+                        <label for="es">Estado:</label>
+                        <input type="text" name="es" id="es" placeholder="Tu estado" required>
+                    </fieldset>
+        
+        
+                    <input type="submit" value="Guardar" class="btn">
+                </form>
+            </section>
+            <script src="js/searchUsers.js"></script>';
+    }
+
+    function newUser(){
+        echo '
+        <br>
+            <h1 class="centrar-texto">Información de la nueva cuenta</h1>
+            
+            <section class="settings">
+                <form action="mysql/newUser.php" method="POST">
+                    <fieldset >
+                        <legend>Información Personal</legend>
+                        <label for="uname">Nombre:</label>
+                        <input type="text" name="uname" id="uname" placeholder="Tu nombre">
+        
+                        <label for="apepat">Apellido Paterno:</label>
+                        <input type="text" name="apepat" id="apepat" placeholder="Primer apellido" required>
+        
+                        <label for="apemat">Apellido Materno:</label>
+                        <input type="text" name="apemat" id="apemat" placeholder="Segundo apellido" required>
+        
+                        <label for="birthdate">Fecha de nacimiento:</label>
+                        <input type="date" name="birthdate" id="birthdate" required>
+        
+                        <label for="mail">E-mail:</label>
+                        <input type="email" name="mail" id="mail" placeholder="Tu e-mail" required>
+        
+                        <label for="phone">Teléfono:</label>
+                        <input type="tel" name="phone" id="phone" placeholder="Tu numero de telefono" required>
+
+                        <label for="roluser">Rol:</label>
+                        <select name="roluser" id="roluser" required>
+                            <option value="0" disabled selected>--Seleccione--</option>
+                            <option value="1">Administrador</option>
+                            <option value="0">Usuario</option>
+                        </select>
+
+                        <label for="pwd">Contraseña:</label>
+                        <input type="password" name="pwd" id="pwd" placeholder="Password" required>
+
+                        <label for="">Gustos</label>
+                    </fieldset>
+        
+                    <input type="submit" value="Guardar" class="btn">
+                </form>
+            </section>';
     }
 ?>
