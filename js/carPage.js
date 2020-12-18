@@ -16,7 +16,7 @@ const addArticle = (id, i, n, c, t, p, e) =>{
                 <div class="nom-acc">
                     <h5>${n}</h5>
                     <div class="ope-car">
-                        <a href="mysql/deletePOC.php?iu=${idu}&ip=${id}">Eliminar</a> <a>Comprar ahora</a>
+                        <a href="mysql/deletePOC.php?iu=${idu}&ip=${id}">Eliminar</a> <a onclick="compraAhora(${p})" id="${p}">Comprar ahora</a>
                     </div>
                 </div>
             </div>
@@ -208,8 +208,8 @@ const EnviaEmail = () =>{
     });
 
     array.forEach(e =>{
-        msg += e.nombre + "  ";
-        msg += (e.cantidad * e.precio) + "  <br>";
+        msg += e.nombre + "   $";
+        msg += (e.cantidad * e.precio) + ".  <br>";
     });
     msg += "Total de la compra: " + Total;
 
@@ -221,3 +221,59 @@ const EnviaEmail = () =>{
 }
 
 getCar();
+
+
+
+const compraAhora = (pos) =>{
+    const cant = array[pos].cantidad;
+
+    if(cant == 0){
+        alert("Debes colocar la cantidad que quieres comprar.")
+    }else{
+        PriceTot = arrayPrice[pos];
+
+        const URL = `http://localhost/Y-LStore/mysql/newCompra.php?iu=${idu}&m=${PriceTot}&c=1`;
+        
+        fetch(URL)
+        .then(response => response.json())
+        .then(response => {
+            if(response.idc != 0){
+                urlv3 = `http://localhost/Y-LStore/mysql/saveArtCom.php?ic=${response.idc}&ip=${array[pos].idp}&c=${cant}`;
+                guardaOneC(urlv3);
+            }
+        })
+        .then(deleteArtCAr(pos))
+        .then(EnviaEmailOneC(pos))
+        .then(window.location.reload())
+        .catch(e => console.log(e))
+    }
+}
+
+
+const guardaOneC = (link) =>{
+    fetch(link)
+        .then(response => response.json())
+        .catch(e => console.log(e))
+}
+
+const EnviaEmailOneC = (pos) =>{
+    Total = arrayPrice[pos];
+    msg = "";
+
+    msg += array[pos].nombre + "   $";
+    msg += (array[pos].precio) + ".  <br>";
+    msg += "Total de la compra: $" + Total;
+
+    const URL = `http://localhost/Y-LStore/mysql/sendEmail.php?iu=${idu}&m=${msg}`;
+
+    fetch(URL)
+        .then(response => response.json())
+        .catch(e => console.log(e))
+}
+
+const deleteArtCAr = (pos) =>{
+    const URL = `http://localhost/Y-LStore/mysql/deletePOC.php?iu=${idu}&ip=${array[pos].idp}`;
+    fetch(URL)
+        .then(response => response.json())
+        .catch(e => console.log(e))
+}

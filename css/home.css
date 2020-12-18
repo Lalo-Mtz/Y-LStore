@@ -530,6 +530,7 @@ input:not([type="date"]):not([type="button"]):not([type="submit"]){
     font-size: 1.9rem;
     margin-right: 2rem;
     text-decoration: none;
+    cursor: pointer;
 }
 
 .box-can p{
