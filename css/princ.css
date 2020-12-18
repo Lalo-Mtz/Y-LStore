@@ -10,10 +10,16 @@
     margin-right: 100px;
     /*margin-top: 200px;
     margin-bottom: 800px;*/
-    display: block;
+    display: flex;
     border-bottom: #ccc solid 1px;
     padding-bottom: 50px;
-    
+}
+
+.secBus{
+    margin-left: 150px;
+    margin-right: 100px;
+    border-bottom: #ccc solid 1px;
+    padding-bottom: 50px;
 }
 
 hr {

@@ -1,7 +1,7 @@
 <?php
     session_start();
     include("sections.php");
-   
+    
     if($_SESSION['registered'] == true){
         $o = $_GET['op'];
 ?>
@@ -58,7 +58,9 @@
     <main class="content">
         <?php
             switch($o){
-               
+                case 0:
+                    include("mysql/principal.php");
+                break;
                 case 2 : 
                     //Verificar que sea admin
                     adminUsers();
@@ -69,6 +71,9 @@
                     adminProducts(); 
                 break;
                 
+                case 4 :
+                    header('Location: Ajax/index.php');
+                break;
                 case 5 : 
                     settings();
                 break;

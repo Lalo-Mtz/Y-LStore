@@ -7,7 +7,7 @@
 
         if(strcmp($_POST['btn'],'Sign up') == 0){
             if(!newUser($_POST['usr'], $_POST['em'], $_POST['pwd'], 0)){
-                header('Location: index.html');
+                header('Location: ../index.html');
             }
             $btn = 1;
         }
