@@ -13,5 +13,5 @@
 
     close($conn);
     
-    header('Locartion: ../home.php?op=3');
+    header('Location: ../home.php?op=3');
 ?>

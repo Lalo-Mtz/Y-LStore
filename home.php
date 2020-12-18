@@ -1,6 +1,7 @@
 <?php
     session_start();
     include("sections.php");
+   
     if($_SESSION['registered'] == true){
         $o = $_GET['op'];
 ?>
@@ -57,7 +58,7 @@
     <main class="content">
         <?php
             switch($o){
-
+               
                 case 2 : 
                     //Verificar que sea admin
                     adminUsers();
@@ -67,7 +68,7 @@
                     //Verificar que sea admin 
                     adminProducts(); 
                 break;
-
+                
                 case 5 : 
                     settings();
                 break;

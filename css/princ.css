@@ -1,0 +1,39 @@
+.im1{
+    width: 250px;
+    height: 250px;
+    text-align:center;
+    margin-left: 520px;
+}
+
+.secMa{
+    margin-left: 150px;
+    margin-right: 100px;
+    /*margin-top: 200px;
+    margin-bottom: 800px;*/
+    display: block;
+    border-bottom: #ccc solid 1px;
+    padding-bottom: 50px;
+    
+}
+
+hr {
+    height: 1px;
+    color: red;
+}
+
+.catSec img{
+    width: 200px;
+    height: 200px;
+}
+
+.catSec{
+    float: left;
+    text-align: center;
+    
+}
+
+.nomP{
+    text-decoration: none;
+    outline: none;
+    color:blue
+}

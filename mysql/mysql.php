@@ -2,8 +2,12 @@
     function connect(){ //Realiza la conexion
         $servername = "localhost";
         $database = "store";
-        $username = "lalo"; //usuario con roles restringidos
-        $password = "lalo";
+        //$username = "lalo"; //usuario con roles restringidos
+        //$password = "lalo";
+        $username = "root";
+        $password = "";
+
+
 
         $conn = mysqli_connect($servername, $username, $password, $database);
         
@@ -41,7 +45,7 @@
     }
 
 
-    function newUser($name, $email, $pwd, $type){ //Para cargar un nuevo usuario
+    /*function newUser($name, $email, $pwd, $type){ //Para cargar un nuevo usuario
         $conn = connect();
         $sql = "INSERT INTO usuario(nombre, email, pwd, tipo) VALUES('$name', '$email', aes_encrypt('$pwd','store'), $type);";
         if($conn->query($sql) === true){
@@ -52,6 +56,9 @@
         }
         close($conn);
         return $sql;
-    }
+    }*/
 
+    function formatearFecha($fecha){
+        return date ('g:i a', strtotime($fecha));
+    }
 ?>
