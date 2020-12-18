@@ -14,6 +14,23 @@ const calle = document.getElementById('calle'),
     ci = document.getElementById('ci'),
     es = document.getElementById('es');
 
+const like = document.getElementById('like'),
+    activa = document.getElementById('activa');
+
+arrayGustos = new Array();
+arrayG = new Array();
+
+const addButton = e =>{
+    cat = e.toString();
+    const newBtn = `
+        <div class="like-cat centrar-texto">
+            <p>${cat}</p><input type="checkbox" name="${cat}" id="${cat}">
+        </div>
+    `;
+
+    like.insertAdjacentHTML('beforeend',newBtn);
+}
+
 
 const getUser = () =>{
     const user = uneme.value,
@@ -35,9 +52,61 @@ const getUser = () =>{
             co.value = response.colonia;
             ci.value = response.ciudad;
             es.value = response.estado;
-            
+            arrayG = response.gustos.split(",");
+            checkAdd(arrayG);
+        })
+        .then(getCategory())
+        .catch(e => console.log(e));
+}
+
+const getCategory = () =>{
+    const URL = `http://localhost/Y-LStore/mysql/consultCategory.php`
+    fetch(URL)
+        .then(response => response.json())
+        .then(response => {
+            arrayGustos = response;
+            response.forEach(e => {
+                addButton(e);
+            });
         })
         .catch(e => console.log(e));
 }
 
+const checkAdd = (array) =>{
+    array.forEach(e =>{
+        chbox = document.getElementById(e);
+        chbox.checked = activa.checked;
+    });
+}
+
 getUser();
+
+
+
+const incrementaG = () =>{
+    gustos = new Array();
+
+    arrayGustos.forEach(e =>{
+        chbox = document.getElementById(e);
+        if(chbox.checked){
+            gustos.push(e);
+        }
+    });
+
+    if(gustos.length <= 1){
+        alert('Selecciona por lo menos 2 categorías, en el apartado de "Gustos"');
+    }else{
+        JSON.stringify(gustos);
+
+        const gst = `
+            <input type="hidden" name="gustos" id="gustos" value="${gustos}" required>
+        `;
+
+        like.insertAdjacentHTML('beforeend',gst);
+
+        alert("Se modificarán tus datos");
+
+        document.fromInfo.submit();
+    }
+}
+

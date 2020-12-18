@@ -19,9 +19,10 @@
         $co = $_POST['co'];
         $ci = $_POST['ci'];
         $es = $_POST['es'];
+        $gu = $_POST['gustos'];
 
 
-        $sql = "UPDATE usuario SET nombre='$u', ape_pat='$ap', ape_mat='$am', fecha='$bid', email='$m', telefono='$ph' WHERE idu=$id;";
+        $sql = "UPDATE usuario SET nombre='$u', ape_pat='$ap', ape_mat='$am', fecha='$bid', email='$m', telefono='$ph', gustos='$gu' WHERE idu=$id;";
 
         if($conn->query($sql) === true){
             $sql = "SELECT * FROM domicilio WHERE idu=$id;";

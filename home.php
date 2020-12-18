@@ -3,6 +3,7 @@
     include("sections.php");
     if($_SESSION['registered'] == true){
         $o = $_GET['op'];
+        $t = $_SESSION['type'];
 ?>
 
 
@@ -27,7 +28,7 @@
 
             <div class="header-left">
                 <label for="check"><i class="fas fa-bars" id="sidebar_btn"></i></label>
-                <h1>STORE <span>Y&L</span></h1>
+                <a href="home.php?op=0"><h1>STORE <span>Y&L</span></h1></a>
             </div>
 
             <div class="header-right">
@@ -44,12 +45,20 @@
     <div class="sidebar">
 
         <div class="profile-data">
-            <h4>Gerardo Martínez</h4>
+            <?php
+                echo '<h4>'.$_SESSION['username'].'</h4>';
+            ?>
         </div>
 
         <a href="home.php?op=1"><i class="fas fa-shopping-cart"></i><span>Shopping</span></a>
-        <a href="home.php?op=2"><i class="fas fa-users"></i><span>Users</span></a>
-        <a href="home.php?op=3"><i class="fas fa-store"></i><span>Products</span></a>
+        <?php
+            if($t == 1){
+                echo '
+                <a href="home.php?op=2"><i class="fas fa-users"></i><span>Users</span></a>
+                <a href="home.php?op=3"><i class="fas fa-store"></i><span>Products</span></a>
+                ';
+            }
+        ?>
         <a href="home.php?op=4"><i class="fas fa-comments"></i><span>Messages</span></a>
         <a href="home.php?op=5"><i class="fas fa-sliders-h"></i><span>Settings</span></a>
     </div>
@@ -57,6 +66,10 @@
     <main class="content">
         <?php
             switch($o){
+
+                case 1 :
+                    carrito();
+                break;
 
                 case 2 : 
                     //Verificar que sea admin
@@ -90,6 +103,10 @@
                 case 9:
                     //verificar que se admin
                     newUser();
+                break;
+
+                case 10:
+                    venta();
                 break;
             }
         ?>

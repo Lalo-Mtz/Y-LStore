@@ -12,6 +12,11 @@ body{
     background-color: #4d84e2;
 }
 
+img{
+    max-width: 100%;
+    max-height: 100%;
+}
+
 h1{
     font-size: 4rem;
 }
@@ -61,6 +66,11 @@ h4{
 
 .header-left i{
     font-size: 4rem;
+}
+
+.header-left a{
+    color: #fff;
+    text-decoration: none;
 }
 
 .header-right button{
@@ -195,7 +205,7 @@ label{
     margin-top: 2rem;
 }
 
-input:not([type="submit"]), textarea, select{
+input:not([type="button"]):not([type="submit"]), textarea, select{
     border: none;
     outline: none;
     display: block;
@@ -212,7 +222,7 @@ textarea{
     height: 20rem;
 }
 
-input:not([type="date"]):not([type="submit"]){
+input:not([type="date"]):not([type="button"]):not([type="submit"]){
     width: 100%;
 }
 
@@ -242,6 +252,24 @@ input:not([type="date"]):not([type="submit"]){
 
 .btn:hover{
     background-color: #4d84e2;
+}
+
+.like{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.like-cat{
+    flex: 0 0 calc(20%);
+}
+
+.like-cat input{
+    display: flex;
+}
+
+.like-cat p{
+    margin-bottom: 0;
 }
 
 
@@ -311,6 +339,10 @@ input:not([type="date"]):not([type="submit"]){
     display: none;
 }
 
+.no-visibleF{
+    display: none!important;
+}
+
 .list{
     width: 100%;
     margin-top: 2rem;
@@ -345,3 +377,188 @@ input:not([type="date"]):not([type="submit"]){
 .ma-bo{
     margin-bottom: 2rem;
 }
+
+/** Venta de producto **/
+.cont-producto{
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+.info-pro{
+    display: flex;
+    justify-content: space-between;
+}
+
+.img-pro{
+    flex: 0 0 calc(65% - 1rem);
+    max-height: 60rem;
+}
+
+.esp-pro{
+    flex: 0 0 calc(35%);
+}
+
+.esp-pro h4{
+    font-size: 2rem;
+    margin-top: 1rem;
+}
+
+.esp-pro span{
+    color: #1dc4e7;
+}
+
+.precio{
+    font-size: 3rem;
+    font-weight: 300;
+}
+
+.space-btns button{
+    display: block;
+    width: 100%;
+}
+
+.ac{
+    background-color: #c5d9fc;
+    color: #5995fd;
+    border-radius: 1rem;
+}
+
+.cmp{
+    border-radius: 1rem;
+}
+
+.ac:hover{
+    background-color: #aeccff;
+}
+
+.caja-com{
+    display: flex;
+    align-items: center;
+}
+
+/** Comentarios **/
+.are-com{
+    height: 5rem;
+}
+
+.area-come{
+    border: #ccc solid 1px;
+    border-radius: 0.5rem;
+    padding: 1rem 2rem;
+}
+
+.msg{
+    max-width: 90rem;
+    border: #ccc solid 1px;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.msg:last-of-type{
+    margin-bottom: 0;
+}
+
+.msg h5{
+    margin: 0;
+}
+
+
+.text-com{
+    max-width: 80rem;
+    margin: 0 auto;
+}
+
+/** Carrito **/
+
+.box-car{
+    max-width: 120rem;
+    margin: 0 auto;
+    border: #ccc solid 1px;
+    margin-bottom: 5rem;
+}
+
+.article{
+    max-width: 100rem;
+    margin: 0 auto;
+    margin-top: 2rem;
+    border-top: #ccc solid 2px;
+    display: flex;
+    padding-top: 2rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.article:last-of-type{
+    margin-bottom: 3rem;
+    flex-direction: row-reverse;
+}
+
+.img-nom{
+    display: flex;
+}
+
+.nom-acc{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.little-img{
+    width: 10rem;
+    height: 10rem;
+    margin-right: 2.5rem;
+}
+
+.article h5{
+    margin: 0;
+}
+
+.price-car span{
+    color: #4481eb;
+    font-size: 4rem;
+}
+
+.ult{
+    font-weight: 400;
+}
+
+.ope-car a{
+    color: #5995fd;
+    font-weight: 300;
+    font-size: 1.9rem;
+    margin-right: 2rem;
+    text-decoration: none;
+}
+
+.box-can p{
+    font-size: 1.5rem;
+    color: #999;
+    margin: 0;
+}
+
+.cant-art{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: #ccc solid 1px;
+    padding: 1rem 1rem;
+    border-radius: 4px;
+}
+
+.cant-art span{
+    margin: 0 1.3rem;
+    font-size: 1.7rem;
+}
+
+.cant-art p{
+    font-size: 1rem;
+    margin: 0;
+    cursor: pointer;
+}
+
+.btn-esp{
+    cursor: pointer;
+}
+

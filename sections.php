@@ -1,11 +1,26 @@
 <?php
+    function carrito(){
+        echo '
+            <br>
+            <section class="v-h" id="art-box">
+            <input type="hidden" name="idu" id="idu" value="'.$_SESSION['id'].'" required>
+                <h1 class="centrar-texto">Carrito</h1>
+
+                <div class="box-car" id="car-box"></div>
+
+            </section>
+            <br><br>
+            <script src="js/carPage.js"></script>
+        ';
+    }
+
     function settings(){
         echo '
         <br>
             <h1 class="centrar-texto">Información de la cuenta</h1>
             
             <section class="settings">
-                <form action="mysql/saveInfoUser.php" method="POST">
+                <form action="mysql/saveInfoUser.php" method="POST" name="fromInfo">
                     <fieldset >
                         <legend>Información Personal</legend>
                         <input type="hidden" name="idu" id="idu" value="'.$_SESSION['id'].'" required>
@@ -28,6 +43,8 @@
                         <input type="tel" name="phone" id="phone" placeholder="Tu numero de telefono" required>
         
                         <label for="">Gustos</label>
+                        <div class="like" id="like"></div>
+                        <input type="checkbox" class="no-visibleF" id="activa" checked>
                     </fieldset>
         
                     <fieldset class="domicilio">
@@ -63,7 +80,7 @@
                     </fieldset>
         
         
-                    <input type="submit" value="Guardar" class="btn">
+                    <input type="button" value="Guardar" class="btn" onclick="incrementaG()">
                 </form>
             </section>
             <script src="js/searchUser.js"></script>';
@@ -254,8 +271,6 @@
                             <option value="1">Administrador</option>
                             <option value="0">Usuario</option>
                         </select>
-
-                        <label for="">Gustos</label>
                     </fieldset>
         
                     <fieldset class="domicilio">
@@ -340,5 +355,64 @@
                     <input type="submit" value="Guardar" class="btn">
                 </form>
             </section>';
+    }
+
+    function venta(){
+        echo '
+            <section class="cont-producto m-c">
+            <br><br>
+            <input type="hidden" name="idp" id="idp" value="'.$_GET['i'].'" required>
+            <input type="hidden" name="idu" id="idu" value="'.$_SESSION['id'].'" required>
+            <input type="hidden" name="userName" id="userName" value="'.$_SESSION['username'].'" required>
+                <fieldset>
+                    <div class="info-pro">
+                        <div class="img-pro">
+                            <img alt="Imagen del producto" id="img-product">
+                        </div>
+
+                        <fieldset class="esp-pro">
+                            <h4 id="name"></h4>
+                            <p>calif</p>
+
+                            <p class="precio"><span id="precio">$ </span></p>
+
+                            <p id="des"></p>
+
+                            <p>Stock disponible: <span id="exi"></span></p>
+                            
+
+                            <p>Cantidad:</p>
+                            <select name="can-p" id="can-p">
+                                <option value="0" disabled selected >--Seleccione--</option>
+                            </select>
+
+                            <div class="space-btns">
+                                <button class="btn cmp" id="comprar">Comprar ahora</button>
+                                <button class="btn ac" id="agregar">Agregar al carrito</button>
+                            </div>
+                        </fieldset>
+                    </div>
+                    
+
+                    <h3 class="centrar-texto">Sección de comentarios</h3>
+                    <section>
+                        <label for="cmt">Escribe tu comentario:</label>
+                        <div class="caja-com">
+                            <textarea class="are-com" id="txtarea"></textarea>
+                            <button class="btn cmp" id="btnEnviarCom">Enviar</button>
+                        </div>
+                    </section>
+
+                    <section class="area-come" id="comments">
+                        
+
+                        
+                    </section>
+                </fieldset>
+                <br><br>
+            </section>
+
+            <script src="js/salepage.js"></script>
+        ';
     }
 ?>

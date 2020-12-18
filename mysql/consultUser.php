@@ -5,7 +5,7 @@
 
     $conn = connect();
 
-    $sql = "SELECT usuario.nombre, usuario.ape_pat, usuario.ape_mat, usuario.fecha, usuario.telefono, usuario.email, domicilio.* FROM usuario 
+    $sql = "SELECT usuario.nombre, usuario.ape_pat, usuario.ape_mat, usuario.fecha, usuario.telefono, usuario.email, usuario.gustos, domicilio.* FROM usuario 
     INNER JOIN domicilio ON usuario.idu = domicilio.idu WHERE usuario.idu='$id'";
 
     $result = ($conn->query($sql))->fetch_assoc();
