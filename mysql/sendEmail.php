@@ -52,7 +52,9 @@
             // Content
             $mail->isHTML(true);                                  // Set email format to HTML
             $mail->Subject = 'Realizaste una compra en Y&L Store';
-            $mail->Body    = 'Agradecemos tu preferencia!!!<br>Detalles de la compra:<br>' . $msg;
+            $mail->Body  = '<h3>Agradecemos tu preferencia!!!</h3><br>
+                            Detalles de la compra: <br><br>' . $msg .
+                            '<br><br>Si desconoce esta operación, ignore el correo.';
 
             
             $mail->send();

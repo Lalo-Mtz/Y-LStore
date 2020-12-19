@@ -202,16 +202,18 @@ const isClear = () =>{
 
 const EnviaEmail = () =>{
     Total = 0;
-    msg = "";
+    
+    msg = `--------<br>`;
+
     arrayPrice.forEach(e => {
         Total += e;
     });
 
     array.forEach(e =>{
-        msg += e.nombre + "   $";
-        msg += (e.cantidad * e.precio) + ".  <br>";
+        msg += `${e.cantidad} - ${e.nombre} de $ ${e.precio}<br>`;
     });
-    msg += "Total de la compra: " + Total;
+
+    msg += `--------<br><p><strong>Total a pagar: $ ${Total}</strong></p>`;
 
     const URL = `http://localhost/Y-LStore/mysql/sendEmail.php?iu=${idu}&m=${msg}`;
 
@@ -258,11 +260,11 @@ const guardaOneC = (link) =>{
 
 const EnviaEmailOneC = (pos) =>{
     Total = arrayPrice[pos];
-    msg = "";
+    msg = `--------<br>`;
 
-    msg += array[pos].nombre + "   $";
-    msg += (array[pos].precio) + ".  <br>";
-    msg += "Total de la compra: $" + Total;
+    msg += `${array[pos].cantidad} - ${array[pos].nombre} de $ ${array[pos].precio}<br>`;
+
+    msg += `--------<br><p><strong>Total a pagar: $ ${Total}</strong></p>`;
 
     const URL = `http://localhost/Y-LStore/mysql/sendEmail.php?iu=${idu}&m=${msg}`;
 

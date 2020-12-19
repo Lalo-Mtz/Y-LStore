@@ -147,7 +147,7 @@ btnComprar.addEventListener('click', e=>{
                     guardaOne(urlv2);
                 }
             })
-            .then(EnviaEmailOne(precioOA))
+            .then(EnviaEmailOne(PriceTot, cant))
             .then(window.location.reload())
             .catch(e => console.log(e)) 
         }
@@ -163,13 +163,14 @@ const guardaOne = (link) =>{
         .catch(e => console.log(e))
 }
 
-const EnviaEmailOne = (tot) =>{
+const EnviaEmailOne = (tot, cantidadA) =>{
     Total =tot;
-    msg = "";
+    
+    msg = `--------<br>`;
 
-    msg += nameArt + "   $";
-    msg += (Total) + ".  <br>";
-    msg += "Total de la compra: " + Total;
+    msg += `${cantidadA} - ${nameArt} de $ ${precioOA}<br>`;
+
+    msg += `--------<br><p><strong>Total a pagar: $ ${Total}</strong></p>`;
 
     const URL = `http://localhost/Y-LStore/mysql/sendEmail.php?iu=${idu}&m=${msg}`;
 

@@ -66,6 +66,10 @@
     <main class="content">
         <?php
             switch($o){
+                case 0 :
+                    //include("mysql/principal.php");
+                    inicio();
+                break;
 
                 case 1 :
                     carrito();
@@ -79,6 +83,15 @@
                 case 3 :
                     //Verificar que sea admin 
                     adminProducts(); 
+                break;
+
+                case 4 :
+                    if($_SESSION['type'] == 1){
+                        $_SESSION['chat'] = 0;
+                    }else{
+                        $_SESSION['chat'] = $_SESSION['id'];
+                    }
+                    header('Location: Ajax/index.php');
                 break;
 
                 case 5 : 

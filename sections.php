@@ -415,4 +415,26 @@
             <script src="js/salepage.js"></script>
         ';
     }
+
+    function inicio(){
+        echo '
+            <section class="contenedor-principal m-c">
+            <br><br>
+                <div class="buscar-pr">
+
+                    <input type="text" name="busca" id="busca">
+
+                    <div class="imagen-b">
+                        <button id="btn-buscar-A"><img src="img/buscar.png" alt="Imagen buscar"></button>
+                    </div>
+                </div>
+
+                <div id="con-princi"></div>         
+
+            
+            </section>
+
+            <script src="js/principal.js"></script>
+        ';
+    }
 ?>
